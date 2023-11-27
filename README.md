@@ -16,7 +16,7 @@ Interactive Hangman Game using Python
 - sign in page to keep score of every player and displays highest score
   
 #### Display Page:
-- Displayes Top 5 high scores with name or userID
+- Display Top 5 high scores with name or userID
 
 ### Word Selection:
 - Implement a mechanism to randomly select a word from a predefined list or a word database.

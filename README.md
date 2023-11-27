@@ -7,13 +7,21 @@ Interactive Hangman Game using Python
 - Dimetri Reese
 ## Objectives
 ### User Interface:
+#### Sign In Page:
+- Registration form (Name - UserID)
+
+#### Game Page:
 - User-friendly interface to display the Hangman game.
 - Display the current state of the word being guessed with underscores for unrevealed letters.
+- sign in page to keep score of every player and displays highest score
+  
+#### Display Page:
+- Displayes Top 5 high scores with name or userID
 
 ### Word Selection:
 - Implement a mechanism to randomly select a word from a predefined list or a word database.
 - Ensure that the selected word is not revealed to the player.
-  
+
 ### Game Logic:
 - Allow the player to guess letters one at a time.
 - Keep track of correct and incorrect guesses.

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Montserrat:wght@300;700&family=Outfit&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    background-image: url('images/hm-homepage-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    width: 50%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.glass-container {
+    position: relative;
+    display: block;
+    max-width: 72vw;
+    margin-top: 10vh;
+    margin-bottom: 38px;
+    background: rgba(0, 0, 0, 0.30);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transition: all ease 0.5s;
+    align-items: center; 
+}
+
+.nav-bar {
+    background-color: white;
+    border-radius: 20px;
+    height: 60px;
+    margin: 20px;
+}
+
+img {
+    display: flex;
+    width: 90%;
+    padding: 0px 0px 0px 0px;
+    margin: auto;
+    translate: 0px -40px;
+}
+
+li {
+    list-style: none;
+    text-align: center;
+    line-height: 2;
+}
+
+p {
+    translate: 0px 15px;
+    text-align: center;
+}
+
+button {
+    font-family: 'Outfit', sans-serif;
+    padding: 10px 20px;
+    margin: 20px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    translate: 0px 30px;
+    margin: auto;
+}
+
+button:hover {
+    background-color: lightcyan;
+}

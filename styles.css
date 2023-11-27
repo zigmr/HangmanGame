@@ -27,6 +27,7 @@ body {
 .glass-container {
     position: relative;
     display: block;
+    width: 350px;
     max-width: 72vw;
     margin-top: 10vh;
     margin-bottom: 38px;
@@ -40,27 +41,35 @@ body {
 
 .nav-bar {
     background-color: white;
+    text-align: center;
     border-radius: 20px;
-    height: 60px;
-    margin: 20px;
+    margin: auto;
+    translate: 0px 25px;
+    width: 50%;
 }
 
 img {
     display: flex;
-    width: 90%;
+    width: 100%;
     padding: 0px 0px 0px 0px;
     margin: auto;
-    translate: 0px -40px;
+    translate: 0px -30px;
 }
 
 li {
-    list-style: none;
+    display: inline;
+    margin: auto;
     text-align: center;
+    list-style: none;
     line-height: 2;
 }
 
+a {
+    display: block;
+}
+
 p {
-    translate: 0px 15px;
+    translate: 0px -20px;
     text-align: center;
 }
 
@@ -72,7 +81,7 @@ button {
     justify-content: center;
     align-items: center;
     display: flex;
-    translate: 0px 30px;
+    translate: 0px 5px;
     margin: auto;
 }
 

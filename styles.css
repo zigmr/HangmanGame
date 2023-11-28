@@ -27,7 +27,7 @@ body {
     color: white;
     text-align: center;
     width: 50%;
-    height: 255px;
+    height: 320px;
     margin: auto;
     translate: 0px 200px;
     border-radius: 10px;
@@ -41,6 +41,10 @@ form {
 
 .form-container a {
     color: white;
+}
+
+.remember {
+    line-height: 3;
 }
 
 .register {

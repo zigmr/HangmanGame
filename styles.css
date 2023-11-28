@@ -9,6 +9,10 @@
 }
 
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
     transition: all ease 0.5s;
     font-family: 'Outfit', sans-serif;
     font-weight: 400;
@@ -16,6 +20,31 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+.form-container{
+    background: rgba(0, 0, 0, 0.40);
+    color: white;
+    text-align: center;
+    width: 50%;
+    height: 255px;
+    margin: auto;
+    translate: 0px 200px;
+    border-radius: 10px;
+    padding: 0px 50px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+form {
+    translate: 0px 20px;
+}
+
+.form-container a {
+    color: white;
+}
+
+.register {
+    translate: 0px 50px;
 }
 
 .container {

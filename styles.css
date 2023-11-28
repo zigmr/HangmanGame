@@ -104,6 +104,10 @@ button {
     margin: auto;
 }
 
+a .btn {
+    text-decoration: overline;
+}
+
 button:hover {
     background-color: lightblue;
 }

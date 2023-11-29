@@ -81,6 +81,7 @@ form {
 }
 
 #easy {
+    text-decoration: overline;
     background-color: #77DD77;
 }
 
@@ -95,6 +96,7 @@ form {
 }
 
 #hard {
+    text-decoration: overline;
     background-color: #FF6961;
 }
 
@@ -111,7 +113,7 @@ form {
 .btn-glass-container {
     display: flex;
     background: rgba(0, 0, 0, 0.40);
-    padding: 50px 20px;
+    padding: 30px 20px;
     border-radius: 20px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }

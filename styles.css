@@ -75,6 +75,47 @@ form {
     translate: 0px 60px;
 }
 
+.btn-container {
+    text-align: center;
+    margin: 200px;
+}
+
+#easy {
+    background-color: #77DD77;
+}
+
+#easy:hover {
+    background-color: #5dbe5d;
+}
+
+#easy:active {
+    background-color: #1a4031;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#hard {
+    background-color: #FF6961;
+}
+
+#hard:hover {
+    background-color: #e25850;
+}
+
+#hard:active {
+    background-color: #1a4031;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.btn-glass-container {
+    display: flex;
+    background: rgba(0, 0, 0, 0.40);
+    padding: 50px 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
 .rules-container {
     text-align: center;
     width: 70%;

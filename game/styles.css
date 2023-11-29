@@ -83,6 +83,7 @@ form {
 #easy {
     text-decoration: overline;
     background-color: #77DD77;
+    padding: 20px 50px;
 }
 
 #easy:hover {
@@ -98,6 +99,7 @@ form {
 #hard {
     text-decoration: overline;
     background-color: #FF6961;
+    padding: 20px 50px;
 }
 
 #hard:hover {
@@ -132,10 +134,8 @@ form {
     max-width: 72vw;
     margin-top: 10vh;
     margin-bottom: 38px;
-    background: rgba(0, 0, 0, 0.40);
     padding: 50px 40px;
     border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     align-items: center; 
 }
 
@@ -187,6 +187,15 @@ h1 {
     color: white;
 }
 
+.rules-link {
+    translate: 0px -10px;
+    background: rgba(0, 0, 0, 0.40);
+    color: white;
+    padding: 40px 0px 0px 0px;
+    margin: 10px -10px;
+    border-radius: 20px;
+}
+
 .rules:hover {
     color: lightblue;
 }
@@ -210,7 +219,7 @@ p {
 
 button {
     font-family: 'Outfit', sans-serif;
-    padding: 10px 20px;
+    padding: 20px 35px;
     margin: 20px;
     border-radius: 5px;
     justify-content: center;
@@ -218,12 +227,19 @@ button {
     display: flex;
     translate: 0px 5px;
     margin: auto;
+    background-color: #77DD77;
+}
+
+button:active {
+    background-color: #1a4031;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+button:hover {
+    background-color: #5dbe5d;
 }
 
 a .btn {
     text-decoration: overline;
-}
-
-button:hover {
-    background-color: lightblue;
 }

@@ -1,5 +1,4 @@
 import random
-import os
 
 
 def select_word(difficulty):
@@ -71,7 +70,7 @@ def play_again():
 def update_score(scores, player_name, player_score):
     if player_name not in scores:
         scores[player_name] = []
-        scores[player_name].append(player_score)
+    scores[player_name].append(player_score)
 
 
 def save_scores(scores):
@@ -120,6 +119,7 @@ def hangman():
 
             if "_" not in current_display:
                 print("Congratulations! You've guessed the word.")
+                player_score += 1
                 update_score(scores, player_name, player_score)
                 break
 

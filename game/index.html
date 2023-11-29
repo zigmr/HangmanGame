@@ -8,12 +8,11 @@
     <link rel="icon" type="image/png" href="images/hm-tab-icon.png">
 
     <!--Stylesheet Link-->
-    <link rel="stylesheet" type="text/css" href="easy-styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 
-    <!--Script-->
-    <script src="script.js"></script>
-    
-    <title>Easy Mode</title>
+    <script type="text/javascript" src="script.js"></script>
+
+    <title>Hangman</title>
 </head>
 <body>
     <header class="header">
@@ -24,15 +23,14 @@
                 <a href="about-us.html">About Us</a>
         </nav>
     </header>
-
-    <div class="loader-wrapper">
-        <div class="loader"></div>
-    </div>
-
-    <img id="content" src="images/chalkboard.jpg" alt="Image of chalkboard">
-
-    <audio id="popSound" src="sounds/pop.mp3"></audio>
-    <audio id="backgroundMusic" src="sounds/Spring-Flowers.mp3" loop></audio>
-
+        <div class="container">
+            <div class="glass-container">
+                <img src="/images/hm-image-homepage.png" alt="Image of Hangman">
+                <p><a class="rules" href="rules.html">Want To See The Rules? Click Me!</a></p>
+                <a href="play.html">
+                    <button class="btn">Start Game</button>
+                </a>
+            </div>
+        </div>
 </body>
 </html>

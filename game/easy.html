@@ -29,10 +29,23 @@
         <div class="loader"></div>
     </div>
 
-    <img id="content" src="/images/chalkboard.jpg" alt="Image of chalkboard">
+    <div class="container">
+        <h1>Hangman Game!</h1>
+        <div class="glass-container">
+            <div class="content">
+                <img id="content" src="/images/chalkboard.jpg" alt="Image of chalkboard">
+        </div>
+        </div>
+    </div>
 
     <audio id="popSound" src="/sounds/pop.mp3"></audio>
     <audio id="backgroundMusic" src="/sounds/Spring-Flowers.mp3" loop></audio>
+
+    <div id="hangman-image"></div>
+    <div id="word-display"></div>
+    <div id="letter-buttons"></div>
+    <div id="message"></div>
+    <button onclick="playAgain()">Play Again?</button>
 
 </body>
 </html>

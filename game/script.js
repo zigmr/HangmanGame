@@ -91,31 +91,64 @@ document.addEventListener("DOMContentLoaded", function () {
         function checkGameStatus() {
             if (attemptsLeft === 0) {
                 displayMessage('Game over! You ran out of attempts. The word was: ' + wordToGuess);
-                resetGame();
+                showPlayAgainButton();
             } else if (!displayWord().includes('_')) {
                 displayMessage('Congratulations! You guessed the word: ' + wordToGuess);
-                resetGame();
+                showPlayAgainButton();
             }
         }
 
-        // Function to reset the game
-        function resetGame() {
-            wordToGuess = chooseWord();
-            guessedLetters = [];
-            attemptsLeft = 6;
-            displayWord();
-        }
+        // Function to show the play again button
+    function showPlayAgainButton() {
+        var playAgainButton = document.getElementById('playAgainButton');
+        playAgainButton.style.display = 'block';
 
-        // Initialize the game
+        // Hide the letters
+        document.getElementById('letter-buttons').style.display = 'none';
+
+        // Clear the word lines
+        document.getElementById('word-lines').textContent = '';
+    }
+
+    // Function to hide the play again button
+    function hidePlayAgainButton() {
+        var playAgainButton = document.getElementById('playAgainButton');
+        playAgainButton.style.display = 'none';
+    }
+
+    // Function to play again
+    function playAgain() {
+        hidePlayAgainButton();
+
+        // Show the letters
+        document.getElementById('letter-buttons').style.display = 'block';
+
+        // Reset the game
+        resetGame();
+    }
+
+    // Function to reset the game
+    function resetGame() {
         wordToGuess = chooseWord();
+        guessedLetters = [];
+        attemptsLeft = 6;
         displayWord();
+    }
 
-        // Add click event listeners to letter buttons
-        letterButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                checkGuess(button.textContent.toLowerCase());
-            });
+    // Add click event listener to the play again button
+    var playAgainButton = document.getElementById('playAgainButton');
+    playAgainButton.addEventListener('click', playAgain);
+
+    // Initialize the game
+    wordToGuess = chooseWord();
+    displayWord();
+
+    // Add click event listeners to letter buttons
+    letterButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            checkGuess(button.textContent.toLowerCase());
         });
+    });
 
     }, 1000); // Adjust the time as needed
 

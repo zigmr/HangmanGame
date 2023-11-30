@@ -141,3 +141,19 @@ h1 {
     translate: 0px -300px;
 }
 
+.play-again-button {
+    padding: 10px 30px;
+    margin: auto;
+    translate: 0px -300px;
+    background-color: #77DD77;
+}
+
+.play-again-button:hover {
+    background-color: #5dbe5d;
+}
+
+.play-again-button:active {
+    background-color: #1a4031;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}

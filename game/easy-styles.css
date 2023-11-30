@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Montserrat:wght@300;700&family=Outfit&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    transition: all ease 0.5s;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    background-image: url('/images/hm-homepage-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.header {
+    text-shadow: 2px 2px black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+}
+
+.logo {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.nav-bar a {
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+img {
+    display: none;
+    width: 100%;
+    height: 550px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Make sure it's on top of other elements */
+}
+
+.loader {
+    border: 8px solid #f3f3f3; /* Light gray border */
+    border-top: 8px solid #3498db; /* Blue border - you can change the color */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+h1 {
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+.container {
+    text-align: center;
+    width: 70%;
+    translate: 0px 50px;
+}
+
+.glass-container {
+    padding: 0px 0px 0px 0px;
+    margin: auto;
+    border-radius: 20px;
+    color: white;
+}
+
+#letter-buttons {
+    position: absolute;
+    translate: 0px -230px;
+    padding: 0px 50px;
+    display: none;
+
+}
+
+.letter-button {
+    font-size: 18px;
+    margin: 2px;
+    padding: 5px 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.letter-button:hover {
+    background-color: white;
+    color: black;
+}
+
+#word-lines {
+    font-size: 24px; /* Adjust the font size as needed */
+    translate: 0px -270px;
+}
+
+#message-box {
+    font-size: 15px;
+    translate: 0px -300px;
+}
+
+.play-again-button {
+    padding: 10px 30px;
+    margin: auto;
+    translate: 0px -270px;
+    background-color: #77DD77;
+}
+
+.play-again-button:hover {
+    background-color: #5dbe5d;
+}
+
+.play-again-button:active {
+    background-color: #1a4031;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}

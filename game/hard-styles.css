@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Montserrat:wght@300;700&family=Outfit&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    transition: all ease 0.5s;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    background-image: url('images/hm-homepage-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.header {
+    text-shadow: 2px 2px black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+}
+
+.logo {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.nav-bar a {
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+img {
+    display: none;
+    width: 70%;
+    height: 550px;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+}
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Make sure it's on top of other elements */
+}
+
+.loader {
+    border: 8px solid #f3f3f3; /* Light gray border */
+    border-top: 8px solid #3498db; /* Blue border - you can change the color */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

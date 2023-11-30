@@ -98,6 +98,8 @@ document.addEventListener("DOMContentLoaded", function () {
             displayMessage('Game over! You ran out of attempts. The word was: ' + wordToGuess);
             showPlayAgainButton();
         } else if (!display.includes('_')) {
+            document.getElementById('correctSound').play();
+            
             displayMessage('Congratulations! You guessed the word: ' + wordToGuess);
             showPlayAgainButton();
         }

@@ -110,6 +110,7 @@ h1 {
     position: absolute;
     translate: 0px -150px;
     padding: 0px 50px;
+    display: none;
 
 }
 

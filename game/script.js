@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // Show the content
         document.getElementById('content').style.display = 'block';
 
+        // Show the letters
+        document.getElementById('letter-buttons').style.display = 'block';
+
         // Play background music
         document.getElementById('backgroundMusic').play();
 

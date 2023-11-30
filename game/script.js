@@ -1,4 +1,3 @@
-// Your existing code
 function redirectBtn() {
     var URL = "play.html";
     window.location.href = URL;
@@ -22,6 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Play background music
         document.getElementById('backgroundMusic').play();
 
+        var wrongSoundElement = document.getElementById('wrongSound');
+
+        wrongSoundElement.volume = 0.2;
+
         // Add click sound to letter buttons
         var letterButtons = document.querySelectorAll('.letter-button');
         letterButtons.forEach(function (button) {
@@ -37,7 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Function to choose a random word
         function chooseWord() {
-            var words = ["python", "hangman", "programming", "computer", "game"];
+            var words = ["apple", "banana", "cat", "dog", "elephant", "fish", "green", "happy",
+            "island", "jacket", "kite", "lemon", "mouse", "nest", "orange", "purple",
+            "queen", "rabbit", "sun", "turtle", "umbrella", "violet", "water", "xylophone",
+            "yellow", "zebra", "air", "bird", "cloud", "dolphin", "egg", "flower", "guitar",
+            "hat", "ice cream", "juice", "key", "laptop", "moon", "notebook", "ocean", "pencil",
+            "quiet", "rose", "star", "tree", "unicorn", "volcano", "window", "xylophone", "zeppelin"];
             return words[Math.floor(Math.random() * words.length)];
         }
 
@@ -48,10 +56,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (guessedLetters.includes(wordToGuess[i])) {
                     display += wordToGuess[i];
                 } else {
-                    display += "_";
+                    display += " _ ";
                 }
             }
             document.getElementById('word-lines').textContent = display;
+        }
+
+        // Function to display messages on the screen
+        function displayMessage(message) {
+            var messageBox = document.getElementById('message-box');
+            messageBox.textContent = message;
+
+            // Optionally, you can add a timeout to clear the message after a few seconds
+            setTimeout(function () {
+                messageBox.textContent = '';
+            }, 3000); // Adjust the time as needed (3000 milliseconds = 3 seconds)
         }
 
         // Function to check the guessed letter
@@ -60,6 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 guessedLetters.push(letter);
                 if (!wordToGuess.includes(letter)) {
                     attemptsLeft--;
+                    // Play the wrong guess sound
+                    document.getElementById('wrongSound').play();
                 }
                 displayWord();
                 checkGameStatus();
@@ -69,10 +90,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Function to check the game status (win or lose)
         function checkGameStatus() {
             if (attemptsLeft === 0) {
-                alert('Game over! You ran out of attempts. The word was: ' + wordToGuess);
+                displayMessage('Game over! You ran out of attempts. The word was: ' + wordToGuess);
                 resetGame();
             } else if (!displayWord().includes('_')) {
-                alert('Congratulations! You guessed the word: ' + wordToGuess);
+                displayMessage('Congratulations! You guessed the word: ' + wordToGuess);
                 resetGame();
             }
         }

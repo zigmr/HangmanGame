@@ -53,13 +53,16 @@ document.addEventListener("DOMContentLoaded", function () {
         function displayWord() {
             var display = "";
             for (var i = 0; i < wordToGuess.length; i++) {
-                if (guessedLetters.includes(wordToGuess[i])) {
+                if (wordToGuess[i] === " ") {
+                    display += " ";  // Keep spaces as they are
+                } else if (guessedLetters.includes(wordToGuess[i])) {
                     display += wordToGuess[i];
                 } else {
                     display += " _ ";
                 }
             }
             document.getElementById('word-lines').textContent = display;
+            return display;  // Return the display string
         }
 
         // Function to display messages on the screen
@@ -88,15 +91,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Function to check the game status (win or lose)
-        function checkGameStatus() {
-            if (attemptsLeft === 0) {
-                displayMessage('Game over! You ran out of attempts. The word was: ' + wordToGuess);
-                showPlayAgainButton();
-            } else if (!displayWord().includes('_')) {
-                displayMessage('Congratulations! You guessed the word: ' + wordToGuess);
-                showPlayAgainButton();
-            }
+    function checkGameStatus() {
+        var display = displayWord();  // Get the current display string
+
+        if (attemptsLeft === 0) {
+            displayMessage('Game over! You ran out of attempts. The word was: ' + wordToGuess);
+            showPlayAgainButton();
+        } else if (!display.includes('_')) {
+            displayMessage('Congratulations! You guessed the word: ' + wordToGuess);
+            showPlayAgainButton();
         }
+    }
 
         // Function to show the play again button
     function showPlayAgainButton() {

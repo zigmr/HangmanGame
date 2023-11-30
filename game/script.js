@@ -18,5 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Play background music
         document.getElementById('backgroundMusic').play();
+
+        // Add click sound to letter buttons
+        var letterButtons = document.querySelectorAll('.letter-button');
+        letterButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                document.getElementById('clickSound').play();
+            });
+        });
     }, 1000); // Adjust the time as needed
 });
+

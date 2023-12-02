@@ -50,6 +50,81 @@ def get_user_guess(used_letters):
         return guess
 
 
+def get_hint(word, guessed_letters):
+    letters_remaining = [letter for letter in word if letter not in guessed_letters]
+    hint = random.choice(letters_remaining)
+    print(f"Hint: The word contains the letter '{hint}'.")
+
+
+def display_hangman(incorrect_guesses):
+    hangman_graphics = [
+        """
+           -----
+           |   |
+               |
+               |
+               |
+               |
+        ---------
+        """,
+        """
+           -----
+           |   |
+           O   |
+               |
+               |
+               |
+        ---------
+        """,
+        """
+           -----
+           |   |
+           O   |
+           |   |
+               |
+               |
+        ---------
+        """,
+        """
+           -----
+           |   |
+           O   |
+          /|   |
+               |
+               |
+        ---------
+        """,
+        """
+           -----
+           |   |
+           O   |
+          /|\\  |
+               |
+               |
+        ---------
+        """,
+        """
+           -----
+           |   |
+           O   |
+          /|\\  |
+          /    |
+               |
+        ---------
+        """,
+        """
+           -----
+           |   |
+           O   |
+          /|\\  |
+          / \\  |
+               |
+        ---------
+        """
+    ]
+    print(hangman_graphics[incorrect_guesses])
+
+
 def choose_difficulty():
     while True:
         difficulty = input("Choose difficulty (easy/hard): ").lower()
@@ -105,6 +180,10 @@ def hangman():
 
         while incorrect_guesses < max_attempts:
             print(display_word(selected_word, used_letters))
+            display_hangman(incorrect_guesses)
+
+            if input("Do you want a hint? (yes/no): ").lower() == "yes":
+                get_hint(selected_word, used_letters)
 
             guess = get_user_guess(used_letters)
             used_letters.append(guess)

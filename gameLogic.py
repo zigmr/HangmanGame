@@ -1,4 +1,5 @@
 import random
+import time
 
 
 def select_word(difficulty):
@@ -7,7 +8,7 @@ def select_word(difficulty):
                  "island", "jacket", "kite", "lemon", "mouse", "nest", "orange", "purple",
                  "queen", "rabbit", "sun", "turtle", "umbrella", "violet", "water", "xylophone",
                  "yellow", "zebra", "air", "bird", "cloud", "dolphin", "egg", "flower", "guitar",
-                 "hat", "ice cream", "juice", "key", "laptop", "moon", "notebook", "ocean", "pencil",
+                 "hat", "icecream", "juice", "key", "laptop", "moon", "notebook", "ocean", "pencil",
                  "quiet", "rose", "star", "tree", "unicorn", "volcano", "window", "xylophone", "zeppelin"
                  ],
         "hard": ["antidisestablishmentarianism", "benevolence", "cacophony", "deoxyribonucleic", "ephemeral",
@@ -37,17 +38,92 @@ def display_word(word, guessed_letters):
 
 def get_user_guess(used_letters):
     while True:
-        guess = input("Enter a letter: ").lower()
+        guess = input("\nEnter a letter: ").lower()
 
         if not guess.isalpha() or len(guess) != 1:
-            print("Please enter a single letter.")
+            print("Please enter a single letter.\n")
             continue
 
         if guess in used_letters:
-            print("You've already guessed that letter. Try again.")
+            print("You've already guessed that letter. Try again.\n")
             continue
 
         return guess
+
+
+def get_hint(word, guessed_letters):
+    letters_remaining = [letter for letter in word if letter not in guessed_letters]
+    hint = random.choice(letters_remaining)
+    print(f"Hint: The word contains the letter '{hint}'.")
+
+
+def display_hangman(incorrect_guesses):
+    hangman_graphics = [
+        """
+           -----
+           |   |
+               |
+               |
+               |
+               |
+        ---------
+        """,
+        """
+           -----
+           |   |
+           O   |
+               |
+               |
+               |
+        ---------
+        """,
+        """
+           -----
+           |   |
+           O   |
+           |   |
+               |
+               |
+        ---------
+        """,
+        """
+           -----
+           |   |
+           O   |
+          /|   |
+               |
+               |
+        ---------
+        """,
+        """
+           -----
+           |   |
+           O   |
+          /|\\  |
+               |
+               |
+        ---------
+        """,
+        """
+           -----
+           |   |
+           O   |
+          /|\\  |
+          /    |
+               |
+        ---------
+        """,
+        """
+           -----
+           |   |
+           O   |
+          /|\\  |
+          / \\  |
+               |
+        ---------
+        """
+    ]
+    print(hangman_graphics[incorrect_guesses])
 
 
 def choose_difficulty():
@@ -87,10 +163,135 @@ def display_top_scores(scores):
     for player_name, player_scores in sorted_scores:
         print(f"{player_name}: {max(player_scores)}")
 
+def display_hangman(incorrect_guesses, difficulty):
+
+    if difficulty == 'easy':
+
+        hangman_graphics = [
+            """
+            -----
+            |   |
+                |
+                |
+                |
+                |
+            ---------
+            """,
+            """
+            -----
+            |   |
+            O   |
+                |
+                |
+                |
+            ---------
+            """,
+            """
+            -----
+            |   |
+            O   |
+            |   |
+                |
+                |
+            ---------
+            """,
+            """
+            -----
+            |   |
+            O   |
+           /|   |
+                |
+                |
+            ---------
+            """,
+            """
+            -----
+            |   |
+            O   |
+           /|\  |
+                |
+                |
+            ---------
+            """,
+            """
+            -----
+            |   |
+            O   |
+           /|\  |
+            /   |
+                |
+            ---------
+            """,
+            """
+            -----
+            |   |
+            O   |
+           /|\  |
+           / \  |
+                |
+            ---------
+            """
+        ]
+
+    else:
+        hangman_graphics = [
+            """
+            -----
+            |   |
+                |
+                |
+                |
+                |
+            ---------
+            """,
+            """
+            -----
+            |   |
+            O   |
+                |
+                |
+                |
+            ---------
+            """,
+            """
+            -----
+            |   |
+            O   |
+            |   |
+                |
+                |
+            ---------
+            """,
+            
+            """
+            -----
+            |   |
+            O   |
+           /|\  |
+                |
+                |
+            ---------
+            """,
+            
+            """
+            -----
+            |   |
+            O   |
+           /|\  |
+           / \  |
+                |
+            ---------
+            """
+        ]
+
+    print(hangman_graphics[incorrect_guesses])
+
 
 def hangman():
     scores = {}
+    
     while True:
+
         player_name = get_player_name()
         player_score = 0
 
@@ -101,30 +302,54 @@ def hangman():
         used_letters = []
         incorrect_guesses = 0
 
-        print(f"Welcome to Hangman, {player_name}! Difficulty: {difficulty.capitalize()}")
+        print(f"Welcome to Hangman, {player_name}! Difficulty: {difficulty.capitalize()}\n")
+        display_hangman(incorrect_guesses, difficulty)
+        
+        start_time = time.time()
 
         while incorrect_guesses < max_attempts:
+            
+
+        
             print(display_word(selected_word, used_letters))
+            display_hangman(incorrect_guesses)
+
+            if input("Do you want a hint? (yes/no): ").lower() == "yes":
+                get_hint(selected_word, used_letters)
 
             guess = get_user_guess(used_letters)
             used_letters.append(guess)
+            
+            
 
             if guess not in selected_word:
                 incorrect_guesses += 1
                 print(f"Incorrect guess! Attempts remaining: {max_attempts - incorrect_guesses}")
+                
             else:
                 print("Good guess!")
 
+
             current_display = display_word(selected_word, used_letters)
+            display_hangman(incorrect_guesses, difficulty)
 
             if "_" not in current_display:
-                print("Congratulations! You've guessed the word.")
-                player_score += 1
+                end_time = time.time()
+                time_taken = end_time - start_time
+                print("Congratulations! You've guessed the word in {:.2f} seconds.\n".format(time_taken))
+                if difficulty == 'easy':
+
+                    player_score += 1
+                else:
+                    player_score += 2
+
                 update_score(scores, player_name, player_score)
                 break
 
         if "_" in display_word(selected_word, used_letters):
             print(f"Sorry, you ran out of attempts. The word was: {selected_word}")
+            
+            
 
         print(f"Your current score: {player_score}")
         save_scores(scores)
@@ -139,3 +364,4 @@ def hangman():
 
 if __name__ == "__main__":
     hangman()
+

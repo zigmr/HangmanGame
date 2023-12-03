@@ -57,116 +57,8 @@ def get_hint(word, guessed_letters):
     print(f"Hint: The word contains the letter '{hint}'.")
 
 
-def display_hangman(incorrect_guesses):
-    hangman_graphics = [
-        """
-           -----
-           |   |
-               |
-               |
-               |
-               |
-        ---------
-        """,
-        """
-           -----
-           |   |
-           O   |
-               |
-               |
-               |
-        ---------
-        """,
-        """
-           -----
-           |   |
-           O   |
-           |   |
-               |
-               |
-        ---------
-        """,
-        """
-           -----
-           |   |
-           O   |
-          /|   |
-               |
-               |
-        ---------
-        """,
-        """
-           -----
-           |   |
-           O   |
-          /|\\  |
-               |
-               |
-        ---------
-        """,
-        """
-           -----
-           |   |
-           O   |
-          /|\\  |
-          /    |
-               |
-        ---------
-        """,
-        """
-           -----
-           |   |
-           O   |
-          /|\\  |
-          / \\  |
-               |
-        ---------
-        """
-    ]
-    print(hangman_graphics[incorrect_guesses])
-
-
-def choose_difficulty():
-    while True:
-        difficulty = input("Choose difficulty (easy/hard): ").lower()
-        if difficulty in ["easy", "hard"]:
-            return difficulty
-        else:
-            print("Invalid difficulty. Please choose 'easy' or 'hard'.")
-
-
-def get_player_name():
-    return input("Enter your name: ")
-
-
-def play_again():
-    return input("Do you want to play again? (yes/no): ").lower() == "yes"
-
-
-def update_score(scores, player_name, player_score):
-    if player_name not in scores:
-        scores[player_name] = []
-    scores[player_name].append(player_score)
-
-
-def save_scores(scores):
-    filename = "hangman_scores.txt"
-    with open(filename, "w") as file:
-        for player_name, player_scores in scores.items():
-            file.write(f"{player_name}'s scores: {', '.join(map(str, player_scores))}\n")
-    print(f"Scores saved to {filename}.")
-
-
-def display_top_scores(scores):
-    print("\nTop 5 Scores:")
-    sorted_scores = sorted(scores.items(), key=lambda x: max(x[1]), reverse=True)[:5]
-    for player_name, player_scores in sorted_scores:
-        print(f"{player_name}: {max(player_scores)}")
-
 def display_hangman(incorrect_guesses, difficulty):
-
     if difficulty == 'easy':
-
         hangman_graphics = [
             """
             -----
@@ -208,7 +100,7 @@ def display_hangman(incorrect_guesses, difficulty):
             -----
             |   |
             O   |
-           /|\  |
+           /|\\  |
                 |
                 |
             ---------
@@ -217,7 +109,7 @@ def display_hangman(incorrect_guesses, difficulty):
             -----
             |   |
             O   |
-           /|\  |
+           /|\\  |
             /   |
                 |
             ---------
@@ -226,13 +118,12 @@ def display_hangman(incorrect_guesses, difficulty):
             -----
             |   |
             O   |
-           /|\  |
-           / \  |
+           /|\\  |
+           / \\  |
                 |
             ---------
             """
         ]
-
     else:
         hangman_graphics = [
             """
@@ -262,7 +153,6 @@ def display_hangman(incorrect_guesses, difficulty):
                 |
             ---------
             """,
-            
             """
             -----
             |   |
@@ -272,7 +162,6 @@ def display_hangman(incorrect_guesses, difficulty):
                 |
             ---------
             """,
-            
             """
             -----
             |   |
@@ -287,13 +176,50 @@ def display_hangman(incorrect_guesses, difficulty):
     print(hangman_graphics[incorrect_guesses])
 
 
+def choose_difficulty():
+    while True:
+        difficulty = input("Choose difficulty (easy/hard): ").lower()
+        if difficulty in ["easy", "hard"]:
+            return difficulty
+        else:
+            print("Invalid difficulty. Please choose 'easy' or 'hard'.")
+
+
+def get_player_name():
+    return input("Enter your name: ")
+
+
+def play_again():
+    return input("Do you want to play again? (yes/no): ").lower() == "yes"
+
+
+def update_score(scores, player_name, player_score):
+    if player_name not in scores:
+        scores[player_name] = []
+    scores[player_name].append(player_score)
+
+
+def save_scores(scores):
+    filename = "hangman_scores.txt"
+    with open(filename, "w") as file:
+        for player_name, player_scores in scores.items():
+            file.write(f"{player_name}'s scores: {', '.join(map(str, player_scores))}\n")
+    print(f"Scores saved to {filename}.")
+
+
+def display_top_scores(scores):
+    print("\nTop 5 Scores:")
+    sorted_scores = sorted(scores.items(), key=lambda x: max(x[1]), reverse=True)[:5]
+    for player_name, player_scores in sorted_scores:
+        print(f"{player_name}: {max(player_scores)}")
+
+
 def hangman():
     scores = {}
-    
-    while True:
 
-        player_name = get_player_name()
-        player_score = 0
+    while True:
+        player_names = [get_player_name(), get_player_name()]
+        player_scores = [0, 0]
 
         difficulty = choose_difficulty()
         selected_word = select_word(difficulty)
@@ -302,33 +228,28 @@ def hangman():
         used_letters = []
         incorrect_guesses = 0
 
-        print(f"Welcome to Hangman, {player_name}! Difficulty: {difficulty.capitalize()}\n")
-        display_hangman(incorrect_guesses, difficulty)
-        
+        print(f"Welcome to Hangman, {player_names[0]} and {player_names[1]}! Difficulty: {difficulty.capitalize()}\n")
+
         start_time = time.time()
 
-        while incorrect_guesses < max_attempts:
-            
+        current_player = 0
 
-        
+        while incorrect_guesses < max_attempts:
+            print(f"{player_names[current_player]}'s turn:")
             print(display_word(selected_word, used_letters))
-            display_hangman(incorrect_guesses)
+            display_hangman(incorrect_guesses, difficulty)
 
             if input("Do you want a hint? (yes/no): ").lower() == "yes":
                 get_hint(selected_word, used_letters)
 
             guess = get_user_guess(used_letters)
             used_letters.append(guess)
-            
-            
 
             if guess not in selected_word:
                 incorrect_guesses += 1
                 print(f"Incorrect guess! Attempts remaining: {max_attempts - incorrect_guesses}")
-                
             else:
                 print("Good guess!")
-
 
             current_display = display_word(selected_word, used_letters)
             display_hangman(incorrect_guesses, difficulty)
@@ -336,22 +257,18 @@ def hangman():
             if "_" not in current_display:
                 end_time = time.time()
                 time_taken = end_time - start_time
-                print("Congratulations! You've guessed the word in {:.2f} seconds.\n".format(time_taken))
-                if difficulty == 'easy':
+                print(f"Congratulations, {player_names[current_player]}! You've guessed the word in {time_taken:.2f} seconds.\n")
+                player_scores[current_player] += 1
 
-                    player_score += 1
-                else:
-                    player_score += 2
-
-                update_score(scores, player_name, player_score)
+                update_score(scores, player_names[current_player], player_scores[current_player])
                 break
 
-        if "_" in display_word(selected_word, used_letters):
-            print(f"Sorry, you ran out of attempts. The word was: {selected_word}")
-            
-            
+            current_player = (current_player + 1) % 2
 
-        print(f"Your current score: {player_score}")
+        if "_" in display_word(selected_word, used_letters):
+            print(f"Sorry, you both ran out of attempts. The word was: {selected_word}\n")
+
+        print(f"Scores: {player_names[0]}: {player_scores[0]}, {player_names[1]}: {player_scores[1]}")
         save_scores(scores)
         display_top_scores(scores)
 
@@ -364,4 +281,3 @@ def hangman():
 
 if __name__ == "__main__":
     hangman()
-

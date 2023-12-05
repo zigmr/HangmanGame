@@ -185,8 +185,8 @@ def choose_difficulty():
             print("Invalid difficulty. Please choose 'easy' or 'hard'.")
 
 
-def get_player_name():
-    return input("Enter your name: ")
+def get_player_name(player_number):
+    return input(f"Enter the name of Player {player_number}: ")
 
 
 def play_again():
@@ -203,7 +203,7 @@ def save_scores(scores):
     filename = "hangman_scores.txt"
     with open(filename, "w") as file:
         for player_name, player_scores in scores.items():
-            file.write(f"{player_name}'s scores: {', '.join(map(str, player_scores))}\n")
+            file.write(f"{player_name}'s scores: {', '.join(map(str, player_scores))} \n")
     print(f"Scores saved to {filename}.")
 
 
@@ -218,7 +218,7 @@ def hangman():
     scores = {}
 
     while True:
-        player_names = [get_player_name(), get_player_name()]
+        player_names = [get_player_name(1), get_player_name(2)]
         player_scores = [0, 0]
 
         difficulty = choose_difficulty()
@@ -228,7 +228,7 @@ def hangman():
         used_letters = []
         incorrect_guesses = 0
 
-        print(f"Welcome to Hangman, {player_names[0]} and {player_names[1]}! Difficulty: {difficulty.capitalize()}\n")
+        print(f"Welcome to Hangman, {player_names[0]} and {player_names[1]}! Difficulty: {difficulty.capitalize()} \n")
 
         start_time = time.time()
 
@@ -257,7 +257,8 @@ def hangman():
             if "_" not in current_display:
                 end_time = time.time()
                 time_taken = end_time - start_time
-                print(f"Congratulations, {player_names[current_player]}! You've guessed the word in {time_taken:.2f} seconds.\n")
+                print(f"Congratulations, {player_names[current_player]}! You've guessed the word in {time_taken:.2f} "
+                      f"seconds.\n")
                 player_scores[current_player] += 1
 
                 update_score(scores, player_names[current_player], player_scores[current_player])
@@ -277,7 +278,6 @@ def hangman():
             break
         else:
             print("Getting a new word for the next round...\n")
-
 
 if __name__ == "__main__":
     hangman()

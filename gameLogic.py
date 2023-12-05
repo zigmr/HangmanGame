@@ -9,7 +9,7 @@ def select_word(difficulty):
                  "queen", "rabbit", "sun", "turtle", "umbrella", "violet", "water",
                  "yellow", "zebra", "air", "bird", "cloud", "dolphin", "egg", "flower", "guitar",
                  "hat", "icecream", "juice", "key", "laptop", "moon", "notebook", "ocean", "pencil",
-                 "quiet", "rose", "star", "tree", "unicorn", "volcano", "window", "xylophone", "zeppelin"
+                 "quiet", "rose", "star", "tree", "unicorn", "volcano", "window"
                  ],
         "hard": ["antidisestablishmentarianism", "benevolence", "cacophony", "ephemeral",
                  "facetious", "garrulous", "idiosyncrasy", "juxtaposition",
@@ -21,7 +21,7 @@ def select_word(difficulty):
                  "kowtow", "lugubrious", "mellifluous", "nepotism",
                  "peregrinate", "quixotic", "ratiocination", "taciturn",
                  "ubiquity", "verisimilitude", "welter", "yammer",
-                 "zymurgy"]
+                 "zymurgy", "xylophone", "zeppelin"]
     }
     return random.choice(word_lists[difficulty])
 

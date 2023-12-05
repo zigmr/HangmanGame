@@ -6,21 +6,21 @@ def select_word(difficulty):
     word_lists = {
         "easy": ["apple", "banana", "cat", "dog", "elephant", "fish", "green", "happy",
                  "island", "jacket", "kite", "lemon", "mouse", "nest", "orange", "purple",
-                 "queen", "rabbit", "sun", "turtle", "umbrella", "violet", "water", "xylophone",
+                 "queen", "rabbit", "sun", "turtle", "umbrella", "violet", "water",
                  "yellow", "zebra", "air", "bird", "cloud", "dolphin", "egg", "flower", "guitar",
                  "hat", "icecream", "juice", "key", "laptop", "moon", "notebook", "ocean", "pencil",
                  "quiet", "rose", "star", "tree", "unicorn", "volcano", "window", "xylophone", "zeppelin"
                  ],
-        "hard": ["antidisestablishmentarianism", "benevolence", "cacophony", "deoxyribonucleic", "ephemeral",
-                 "facetious", "garrulous", "higgledy-piggledy", "idiosyncrasy", "juxtaposition",
-                 "kaleidoscopic", "labyrinthine", "mnemonic", "obfuscate", "peculiar",
-                 "quintessential", "recalcitrant", "sesquipedalian", "triskaidekaphobia", "ubiquitous",
-                 "vexatious", "weltschmerz", "xanthosis", "yurt", "zeitgeist",
+        "hard": ["antidisestablishmentarianism", "benevolence", "cacophony", "ephemeral",
+                 "facetious", "garrulous", "idiosyncrasy", "juxtaposition",
+                 "kaleidoscopic", "labyrinth", "mnemonic", "obscure", "peculiar",
+                 "quintessential", "recalcitrant", "sesquipedalian", "arachnophobia", "ubiquitous",
+                 "vexatious", "xanthosis", "yurt", "poltergeist",
                  "aberration", "belligerent", "circumlocution", "disparate", "exacerbate",
                  "flibbertigibbet", "grandiloquent", "hierarchical", "iconoclast", "jingoistic",
-                 "kowtow", "lugubrious", "mellifluous", "nepotism", "obfuscation",
-                 "peregrinate", "quixotic", "ratiocination", "sesquipedalian", "taciturn",
-                 "ubiquity", "verisimilitude", "welter", "xenophobe", "yammer",
+                 "kowtow", "lugubrious", "mellifluous", "nepotism",
+                 "peregrinate", "quixotic", "ratiocination", "taciturn",
+                 "ubiquity", "verisimilitude", "welter", "yammer",
                  "zymurgy"]
     }
     return random.choice(word_lists[difficulty])
